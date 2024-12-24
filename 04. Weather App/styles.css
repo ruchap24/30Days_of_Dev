@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+* {
+    font-family: 'Questrial', sans-serif;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 300px;
+    padding: 50px;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.2);
+}
+
+#cityInput {
+    outline: 0;
+    border: 0;
+    padding: 15px;
+    height: 20px;
+    width: 200px;
+    margin-right: 10px;
+    border-radius: 50px;
+    background-color: rgba(203, 210, 255, 0.289);
+}
+
+#cityInput:focus {
+    border: 2px solid darkblue;
+}
+
+#searchBtn {
+    background-color: darkblue;
+    color: white;
+    font-size: 14px;
+    border: none;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#weatherInfo {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#location-error {
+    display: none;
+    color: red;
+}
