@@ -8,6 +8,7 @@ let recorder = null;
 
 let chunks = [];
 
+
 const setupAudio = () => {
     console.log("Setup");
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
