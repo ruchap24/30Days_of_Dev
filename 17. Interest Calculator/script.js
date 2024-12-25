@@ -7,6 +7,7 @@ const totalInterest = document.getElementById("totalInterest");
 const totalAmount = document.getElementById("totalAmount");
 const resultBox = document.querySelector(".result");
 
+
 calcBtn.addEventListener("click", () => {
     let p = Number(principalInp.value);
     let r = Number(rateInp.value);
