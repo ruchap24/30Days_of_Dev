@@ -8,5 +8,3 @@ toastBtn.addEventListener("click", () => {
         toast.classList.remove("show");
     }, 3000); // Toast will hide after 3 seconds
 });
-
-// Get Source Code - GitHub/Telegram(Link in Bio)
