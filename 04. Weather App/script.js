@@ -9,6 +9,7 @@ searchBtn.addEventListener("click", () => {
     if (cityName === "") {
         weatherInfo.innerHTML = "&#42;Input field is required.".fontcolor('red');
     }
+    
     else {
         const apiKey = "aac49b9077eb4a821e39072e6a069303";
 
