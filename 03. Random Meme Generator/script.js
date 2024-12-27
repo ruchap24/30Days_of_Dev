@@ -9,6 +9,7 @@ function updateDetails(url, title, author) {
     memeAuthor.innerHTML = `Meme by @${author}`;
 }
 
+
 function GenerateMeme() {
     fetch("https://meme-api.com/gimme")
         .then((response) => response.json())
