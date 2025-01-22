@@ -1,30 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script>
-        function addTodo(){
-            const title=document.getElementById("title").value;
-            const description=document.getElementById("description").value;
-            const container=document.getElementById("container").innerHTML;
-            // document.getElementById("container").innerHTML=container+`<div><div>${title}</div> <div> ${description}</div>
-            // <button>mark as complete</button></div>`;
-            const outer=document.createElement("div");
-            outer.innerHTML=`<div><div>${title}</div> <div> ${description}</div> <div><button>mark as complete</button></div></div>`;
-            document.getElementById("container").appendChild(outer);
+    <title>To-Do</title>
+    <style>
+        .high {
+            color: red;
+        }
+
+        .medium {
+            color: orange;
+        }
+
+        .low {
+            color: green;
+        }
+    </style>
+    <script> let globalID = 1; function addtodo() {
+            const title = document.getElementById("box1").value; const description = document.getElementById("box2").value; const time = document.getElementById("box3").value; const priority = document.getElementById("box4").value; const parent = document.getElementById("todos");
+            parent.appendChild(createChild(title, description, time, priority, globalID++));
+
+            document.getElementById("box1").value = '';
+            document.getElementById("box2").value = '';
+            document.getElementById("box3").value = '';
+            document.getElementById("box4").value = 'low';
+        }
+        function createChild(title, description, time, priority, globalID) {
+            const child = document.createElement("div");
+            child.className = priority;
+
+            const firstGrandparent = document.createElement("div");
+            firstGrandparent.innerHTML = title;
+
+            const secondGrandParent = document.createElement("div");
+            secondGrandParent.innerHTML = description;
+
+            const thirdGrandParent = document.createElement("div");
+            thirdGrandParent.innerHTML = time;
+
+            const fourthGrandParent = document.createElement("button");
+            fourthGrandParent.innerHTML = "Mark as Done";
+            fourthGrandParent.setAttribute("onclick", `markAsDone(${globalID})`);
+
+            child.appendChild(firstGrandparent);
+            child.appendChild(secondGrandParent);
+            child.appendChild(thirdGrandParent);
+            child.appendChild(fourthGrandParent);
+            child.setAttribute("id", globalID);
+            return child;
+        }
+        function markAsDone(todoId) {
+            const parent = document.getElementById(todoId);
+            parent.children[3].innerHTML = "done!";
+
+            setTimeout(() => {
+                alert("Would you like to remove task from list.");
+                parent.remove();
+            },);
         }
     </script>
 </head>
+
 <body>
-    <div>
-        <input id="title" type="text" placeholder="Enter your task" /></input>
-    </br>
-    <input id="description" type="text" placeholder="description" /></input>
-    <br>
-    <button onclick="addTodo()">Add Task</button>
+    <input type="text" id="box1" placeholder="Enter your task"></input> <br /><br />
+    <input type="text" id="box2" placeholder="Enter your description"></input> <br /><br />
+    <input type="text" id="box3" placeholder="Enter your time"></input> <br /><br />
+    <select id="box4">
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+    </select> <br /><br />
+    <button onclick="addtodo()">Add Todo</button>
+    <div id="todos">
     </div>
-    <div id="container"></div>
 </body>
 </html>
