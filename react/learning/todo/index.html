@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do</title>
     <style>
+        * {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif Arial, sans-serif;
+            font-size: 20px;
+        }
+
         .high {
             color: red;
         }
@@ -18,8 +23,13 @@
             color: green;
         }
     </style>
-    <script> let globalID = 1; function addtodo() {
-            const title = document.getElementById("box1").value; const description = document.getElementById("box2").value; const time = document.getElementById("box3").value; const priority = document.getElementById("box4").value; const parent = document.getElementById("todos");
+    <script> let globalID = 1;
+        function addtodo() {
+            const title = document.getElementById("box1").value; 
+            const description = document.getElementById("box2").value; 
+            const time = document.getElementById("box3").value; 
+            const priority = document.getElementById("box4").value; 
+            const parent = document.getElementById("todos");
             parent.appendChild(createChild(title, description, time, priority, globalID++));
 
             document.getElementById("box1").value = '';
@@ -31,18 +41,18 @@
             const child = document.createElement("div");
             child.className = priority;
 
-            const firstGrandparent = document.createElement("div");
-            firstGrandparent.innerHTML = title;
+            const firstGrandChild = document.createElement("div");
+            firstGrandChild.innerHTML = title;
 
-            const secondGrandParent = document.createElement("div");
-            secondGrandParent.innerHTML = description;
+            const secondGrandChild = document.createElement("div");
+            secondGrandChild.innerHTML = description;
 
-            const thirdGrandParent = document.createElement("div");
-            thirdGrandParent.innerHTML = time;
+            const thirdGrandChild = document.createElement("div");
+            thirdGrandChild.innerHTML = time;
 
-            const fourthGrandParent = document.createElement("button");
-            fourthGrandParent.innerHTML = "Mark as Done";
-            fourthGrandParent.setAttribute("onclick", `markAsDone(${globalID})`);
+            const fourthGrandChild = document.createElement("button");
+            fourthGrandChild.innerHTML = "Mark as Done";
+            fourthGrandChild.setAttribute("onclick", `markAsDone(${globalID})`);
 
             child.appendChild(firstGrandparent);
             child.appendChild(secondGrandParent);
@@ -76,4 +86,5 @@
     <div id="todos">
     </div>
 </body>
+
 </html>
