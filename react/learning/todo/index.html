@@ -54,10 +54,10 @@
             fourthGrandChild.innerHTML = "Mark as Done";
             fourthGrandChild.setAttribute("onclick", `markAsDone(${globalID})`);
 
-            child.appendChild(firstGrandparent);
-            child.appendChild(secondGrandParent);
-            child.appendChild(thirdGrandParent);
-            child.appendChild(fourthGrandParent);
+            child.appendChild(firstGrandChild);
+            child.appendChild(secondGrandChild);
+            child.appendChild(thirdGrandChild);
+            child.appendChild(fourthGrandChild);
             child.setAttribute("id", globalID);
             return child;
         }
@@ -70,10 +70,25 @@
                 parent.remove();
             },);
         }
+        const switchTheme = () =>{
+            const check= document.getElementById("optTheme");
+            if(check.checked==true){
+                document.querySelector("body").style.backgroundColor="black";
+                document.querySelector("body").style.color="white";
+            }
+            else{
+                document.querySelector("body").style.backgroundColor="white";
+                document.querySelector("body").style.color="black";
+            }   
+        }
     </script>
 </head>
 
 <body>
+    <div class="container">
+        <h2>light/dark</h2>
+        <input type="checkbox" id="optTheme" onchange="switchTheme()">
+    </div>
     <input type="text" id="box1" placeholder="Enter your task"></input> <br /><br />
     <input type="text" id="box2" placeholder="Enter your description"></input> <br /><br />
     <input type="text" id="box3" placeholder="Enter your time"></input> <br /><br />
