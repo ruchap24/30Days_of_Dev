@@ -1,0 +1,15 @@
+ import { useState } from "react";
+export default function Like(){
+     let [n,setCount]=useState(false);
+     let sty={color:"red"}
+    let cnt= ()=>{
+        setCount(!n);
+    }
+    return(
+        <>
+        <div onClick={cnt}>Like
+            {n?(<i className="fa fa-heart" aria-hidden="true" style={sty} ></i>):(<i className="fa-regular fa-heart" style={sty}></i>)}
+        </div>
+        </>
+    );
+}
