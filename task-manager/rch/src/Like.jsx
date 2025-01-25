@@ -8,7 +8,9 @@ export default function Like(){
     return(
         <>
         <div onClick={cnt}>Like
+            <p>
             {n?(<i className="fa fa-heart" aria-hidden="true" style={sty} ></i>):(<i className="fa-regular fa-heart" style={sty}></i>)}
+            </p>
         </div>
         </>
     );
